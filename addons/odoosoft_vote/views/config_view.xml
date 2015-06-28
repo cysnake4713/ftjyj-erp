@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="tree_vote_config_tree" model="ir.ui.view">
+            <field name="name">view.odoosoft.vote.config.tree</field>
+            <field name="model">odoosoft.vote.config</field>
+            <field name="priority">16</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tree_vote_config_form" model="ir.ui.view">
+            <field name="name">view.odoosoft.vote.config.form</field>
+            <field name="model">odoosoft.vote.config</field>
+            <field name="priority">16</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="is_register"/>
+                            <field name="reg_start_date"/>
+                            <field name="reg_end_date"/>
+                            <field name="is_vote"/>
+                            <field name="vote_start_date"/>
+                            <field name="vote_end_date"/>
+                            <field name="vote_users" widget="many2many_tags"/>
+                            <field name="vote_types" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

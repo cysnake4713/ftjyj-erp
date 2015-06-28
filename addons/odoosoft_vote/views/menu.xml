@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="action_vote_config" model="ir.actions.act_window">
+            <field name="name">评分</field>
+            <field name="res_model">odoosoft.vote.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_vote_register_record" model="ir.actions.act_window">
+            <field name="name">上传作品</field>
+            <field name="res_model">odoosoft.vote.register.record</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_vote_vote_record" model="ir.actions.act_window">
+            <field name="name">在线评分</field>
+            <field name="res_model">odoosoft.vote.vote.record</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--root-->
+        <menuitem id="menu_vote_root" name="评分系统" sequence="31" groups=""/>
+        <!--management-->
+        <menuitem id="menu_vote_manager" parent="menu_vote_root" name="评分" sequence="5"/>
+        <menuitem name="评分设置" id="menu_vote_config" parent="menu_vote_manager" action="action_vote_config" sequence="5"/>
+        <menuitem name="上传作品" id="menu_vote_register_record" parent="menu_vote_manager" action="action_vote_register_record" sequence="3"/>
+        <menuitem name="在线评分" id="menu_vote_vote_record" parent="menu_vote_manager" action="action_vote_vote_record" sequence="4"/>
+        <!--config-->
+
+    </data>
+</openerp>
