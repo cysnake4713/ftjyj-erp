@@ -42,11 +42,22 @@ class RegisterRecord(models.Model):
 
 class VoteRecord(models.Model):
     _name = 'odoosoft.vote.vote.record'
-    _rec_name = 'record'
+    _rec_name = 'user'
     _description = 'Odoosoft Vote Vote Record'
 
-    record = fields.Many2one('odoosoft.vote.register.record', u'作品')
-    files = fields.Many2many('ir.attachment', 'odoosoft_vote_vote_record_user_rel', 'record_id', 'attachment_id', u'作品上传')
+    user = fields.Many2one('res.users', u'用户')
+    # files = fields.Many2many('ir.attachment', 'odoosoft_vote_vote_record_user_rel', 'record_id', 'attachment_id', u'作品上传')
+    lines = fields.One2many('odoosoft.vote.vote.record.line', 'record', u'评分')
+
+
+class VoteRecordLine(models.Model):
+    _name = 'odoosoft.vote.vote.record.line'
+    _rec_name = 'register'
+    _description = 'Odoosoft Vote Vote Record Line'
+
+    record = fields.Many2one('odoosoft.vote.vote.record', 'Record')
+    register = fields.Many2one('odoosoft.vote.register.record', u'作品')
+
     score = fields.Float(u'得分')
 
 

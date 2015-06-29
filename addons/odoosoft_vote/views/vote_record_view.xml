@@ -7,8 +7,7 @@
             <field name="priority">16</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="record"/>
-                    <field name="score"/>
+                    <field name="user"/>
                 </tree>
             </field>
         </record>
@@ -21,9 +20,13 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="record"/>
-                            <field name="files" widget="many2many_binary"/>
-                            <field name="score"/>
+                            <field name="user"/>
+                            <field name="lines">
+                                <tree editable="bottom">
+                                    <field name="register"/>
+                                    <field name="score"/>
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                 </form>
